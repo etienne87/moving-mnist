@@ -1,0 +1,51 @@
+from setuptools import setup, find_packages
+
+from pytorch_stream_dataloader import __version__
+
+
+extra_test=[
+    'pytest>=4',
+    'pytest-cov>=2'
+]
+
+extra_dev=[
+    *extra_test,
+]
+
+extra_ci = [
+    *extra_test,
+    'python-coveralls',
+]
+
+
+setup(
+    name = 'moving-mnist',
+    packages = find_packages(exclude=['legacy']),
+    version = __version__,
+    license='MIT',
+    description = 'Moving MNIST RNN-DataLoader - Pytorch',
+    author = 'Etienne Perot',
+    author_email = 'et.perot@gmail.com',
+    url = 'https://github.com/etienne87/moving-mnist',
+    keywords = [
+        'artificial intelligence',
+        'rnn data loading',
+        'mnist'
+    ],
+    install_requires=[
+        'torch>=1.6',
+        'pytorch-stream-dataloader'
+    ],
+    extras_require={
+        'video':extra_video,
+        'dev':extra_dev,
+        'test':extra_test,
+        'ci':extra_ci
+    },
+    classifiers=[
+        'Intended Audience :: Developers',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.6',
+    ],
+)
